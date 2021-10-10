@@ -16,3 +16,13 @@ ENV HOME=/${WORKDIR} \
 RUN echo ${HOME}
 
 WORKDIR ${HOME}
+
+# ローカルのpackage.jsonをコンテナ上にコピーして、インストールしている
+COPY package*.json ./
+RUN yarn install
+
+# frontのディレクトリを、コンテナのディレクトリにnuxtプロジェクトを一式コピー
+COPY . ./
+
+# 本番環境様にアプリを構築
+RUN yarn run build
