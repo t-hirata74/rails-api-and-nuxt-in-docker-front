@@ -25,6 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    'plugins/axios'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,7 +44,10 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    // API_URLの環境変数を宣言しているので、環境変数が優先されるらしい
+    // baseURL: 'http://localhost:3000'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
